@@ -7,12 +7,6 @@ const port = process.env.PORT || 8080;
 
 app.use('/', express.static('public'));
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
-
-
 app.get('/api/tracks', function (req, res) {
     res.json(tracks);
 });
