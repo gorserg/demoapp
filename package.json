@@ -4,8 +4,11 @@
   "description": "Nodejs demo app",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "start": "node app.js"
   },
   "author": "danit",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
