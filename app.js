@@ -1,10 +1,16 @@
 var express = require('express');
 var app = express();
 
+var tracks = require('./data/tracks')
+
 const port = process.env.PORT || 8080;
 
 app.get('/', function (req, res) {
     res.send('Hello World!');
+});
+
+app.get('/api/tracks', function (req, res) {
+    res.json(tracks);
 });
 
 app.get('/api/ping', function (req, res) {
