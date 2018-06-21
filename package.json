@@ -1,12 +1,13 @@
 {
   "name": "demoapp",
-  "version": "1.0.0",
-  "description": "Nodejs demo app",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Fullstack demo application demo",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "danit",
+  "repository": "git@github.com:gorserg/demoapp.git",
+  "author": "goroserg@gmail.com",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",

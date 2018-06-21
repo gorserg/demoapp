@@ -1,47 +1,33 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-
-var tracks = require('./data/tracks')
+var apiRoutes = require('./routes/api')
 
 const port = process.env.PORT || 8080;
 
-// Connect mLab MongoDB
-mongoose.connect('mongodb://admin:qwerty123@ds261040.mlab.com:61040/danit');
 
-const Track = mongoose.model('Track', {
-    id: {
-        type: Number,
-        index: true,
-        unique: true
-    }, name: String
-});
 
-//const track = new Track({id: 3, name: 'Track 3'});
-//track.save().then(() => console.log('saved'));
 
 // Create our Express router
 var router = express.Router();
 
-app.get('/api/track', function (req, res) {
-    Track.find(function(err, tracks) {
-        if (err)
-            res.send(err);
+router.use(express.static('public'));
 
-        res.json(tracks);
-    });
-});
+app.use('/', router);
+app.use('/api/', apiRoutes);
 
-app.use('/', express.static('public'));
 
-app.get('/api/tracks', function (req, res) {
-    res.json(tracks);
-});
+// Connect mLab MongoDB
+mongoose.connect('mongodb://admin:qwerty123@ds261040.mlab.com:61040/danit');
 
-app.get('/api/ping', function (req, res) {
-    res.json({"ping": new Date().toISOString()});
-});
+//const track = new Track({id: 5, name: 'Track 5'});
+//track.save().then(() => console.log('saved'));
+
+
+
+
 
 app.listen(port, function () {
-    console.log(`Express server running at http://localhost:${port}/`);
+    console.log(`Server running at http://localhost:${port}/`);
+    console.log(router.stack);
 });
