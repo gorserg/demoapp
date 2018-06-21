@@ -1,0 +1,7 @@
+.version {
+    font-weight: bold;
+    color: green;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}

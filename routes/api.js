@@ -20,10 +20,9 @@ router.get('/file/tracks', function (req, res) {
 
 router.route('/track')
     .get(function (req, res) {
-        Track.find(function (err, tracks) {
+        Track.find((err, tracks) => {
             if (err)
                 res.send(err);
-
             res.json(tracks);
         });
     });
